@@ -114,9 +114,7 @@ class NextShape():
         drawmodel(self.model, self.modelcolor)
 
 class TetrisBlock():
-    
     global ground
-        
     def __init__(self, coordinates):
         self.coordinates = coordinates[0]
         self.origcoords = coordinates[0]
@@ -124,12 +122,9 @@ class TetrisBlock():
         draw(self.coordinates, self.color)
         
     def rotate(self, indicator): 
-        
         if self.color == blue: ##################SSHAPE####################################################################
-        
             rotatecoords = []
             if indicator == 0:
-                
                 rotatecoords.append((self.coordinates[1][0]-1, self.coordinates[1][1]-1))
                 if rotatecoords[0][0] > -1:
                 
@@ -173,11 +168,8 @@ class TetrisBlock():
                     return 1
                 
         if self.color == orange: ###############TSHAPE#############################################################################
-            
             rotatecoords = []
-            
             if indicator == 0:
-                
                 rotatecoords.append((self.coordinates[0][0]-1, self.coordinates[0][1]+1))
                 if rotatecoords[0][0] > -1:
                     draw(self.coordinates, red)      
@@ -214,10 +206,7 @@ class TetrisBlock():
                     self.coordinates[2] = (self.coordinates[2][0]+1, self.coordinates[2][1]-1)
                     
                     if self.coordinates[3][1] < 0:
-                        forloop = 0
-                        for y, x in self.coordinates:
-                            self.coordinates[forloop] = (y,x+1)
-                            forloop = forloop + 1
+                        self.coordinates = [(y,x+1) for y,x in self.coordinates]
                     
                         draw(self.coordinates, self.color)
                             
@@ -243,10 +232,7 @@ class TetrisBlock():
                     self.coordinates[3] = (self.coordinates[3][0]+1, self.coordinates[3][1]+1)
                 
                     if self.coordinates[2][1] > 9:
-                        forloop = 0
-                        for y, x in self.coordinates:
-                            self.coordinates[forloop] = (y,x-1)
-                            forloop = forloop + 1
+                        self.coordinates = [(y,x-1) for y,x in self.coordinates]
                 
                         draw(self.coordinates, self.color)
                         
