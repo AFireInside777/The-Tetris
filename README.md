@@ -1,0 +1,2 @@
+# The-Tetris
+This is a project I built in order to get more familiar with Pygame. I do not have any vision or plan for a final version of this project. Unfortunately, the only pygame features I needed for this project so far were drawing a rectangle, opening a screen, and placing text on a screen. The rest of the project (so far) only required basic Python objects and functions. I am still learning coding, so I do plan on adding and updating functionality and visuals (using sprites) for this project as time passes.
