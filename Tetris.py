@@ -73,6 +73,7 @@ currentshape = []
 tetrisshapeinfo = []
 perspectiveshape = []
 ground = []
+movedowncount = 1000
 x = 0
 y = 0
 
@@ -444,7 +445,7 @@ class TetrisBlock():
         return self.coordinates
   
 movedown = pygame.USEREVENT + 1
-pygame.time.set_timer(movedown, 1000)
+pygame.time.set_timer(movedown, movedowncount)
 ############################################################################################################################
 def ScoreUpdate(multiplier):
     global font
@@ -595,13 +596,22 @@ def SortingFunctions(board):
         else:
             redcounter = 0
             continue
-    
+
+def pause():
+    global movedowncount
+    if movedowncount == 1000:
+        movedowncount = 0 
+        pygame.time.set_timer(movedown, movedowncount)
+    else:
+        movedowncount == 1000
+        pygame.time.set_timer(movedown, movedowncount)
+
 def birthshape(coords):
     blockname = random.choice(shapenames)
     NextShape(BlockModelLibrary[blockname])
     currentshape = TetrisBlock(coords)
+    spareshapestorage = currentshape
     result = False
-    rotatecounter = 0
     sign = 0
     
     while currentshape: # main game loop
@@ -621,6 +631,9 @@ def birthshape(coords):
                     
                 if event.key == pygame.K_UP:                
                     sign = currentshape.rotate(sign)
+
+                if event.key == pygame.K_p:
+                    pause()
                                
             if event.type == movedown:
                 result = currentshape.movedown()
