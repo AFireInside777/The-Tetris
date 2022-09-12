@@ -3,7 +3,7 @@ This is a project I built in order to get more familiar with Pygame. I do not ha
 
 This uses the Pygame module: https://pypi.org/project/pygame/
 
-It also utilizes the Python time and random modules.
+It also utilizes the Python time and random modules. The project can be ran in Python 3.10.7.
 
 --Functionality for being able to pause the game is still being worked on. The game can pause if you press P, however, it does not un-pause.
 
